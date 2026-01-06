@@ -53,3 +53,18 @@ async function fetchUselessFact() {
 // Event listener pentru buton
 // =========================
 generateFactBtn.addEventListener("click", fetchUselessFact);
+
+// =========================
+// Funcție pentru actualizarea datei și timpului
+// =========================
+function updateDateTime() {
+    const now = new Date();
+    const datetimeElement = document.getElementById('datetime');
+    datetimeElement.textContent = `Data și timp: ${now.toLocaleString('ro-RO')}`;
+}
+
+// Actualizare inițială
+updateDateTime();
+
+// Actualizare la fiecare secundă
+setInterval(updateDateTime, 1000);

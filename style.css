@@ -138,6 +138,16 @@ header h1 {
 }
 
 /* =========================
+   Footer
+   ========================= */
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* =========================
    Utility
    ========================= */
 [hidden] {
