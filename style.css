@@ -11,7 +11,8 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #d299c2 100%);
+    background-attachment: fixed;
     color: #333;
     min-height: 100vh;
     display: flex;
@@ -91,6 +92,34 @@ header h1 {
 #generate-fact-btn:active {
     transform: translateY(0);
     box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+}
+
+/* =========================
+   Previous Fact Section
+   ========================= */
+.previous-fact-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.previous-fact-section h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+#previous-fact-card {
+    background-color: #fafafa;
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+#previous-fact-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
 }
 
 /* =========================
