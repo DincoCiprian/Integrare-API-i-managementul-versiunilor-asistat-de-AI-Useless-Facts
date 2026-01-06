@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Useless Facts App</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useless Facts Generator</title>
+
+    <!-- Conectare fișier CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="dashboard">
-    <h1>🤪 Useless Facts Generator</h1>
 
-    <div id="error" class="error"></div>
+    <main>
+        <section class="app-container">
 
-    <div id="factCard" class="fact-card">
-      Apasă pe buton pentru a genera un useless fact!
-    </div>
+            <header>
+                <h1>Useless Facts Generator</h1>
+            </header>
 
-    <button id="generateBtn">Generează un useless fact</button>
-  </div>
+            <section class="fact-section">
+                <div id="fact-card">
+                    <p id="fact-text">
+                        Apasă butonul pentru a genera un fact inutil 🤓
+                    </p>
+                </div>
+            </section>
 
-  <script src="script.js"></script>
+            <section class="controls">
+                <button id="generate-fact-btn">
+                    Generează un fact inutil
+                </button>
+            </section>
+
+            <section class="errors">
+                <p id="error-message" hidden>
+                    A apărut o eroare. Te rugăm să încerci din nou.
+                </p>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- Conectare fișier JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

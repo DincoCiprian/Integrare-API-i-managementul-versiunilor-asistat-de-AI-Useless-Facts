@@ -1,90 +1,116 @@
-* {
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* =========================
+   Reset & Base Styles
+   ========================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #333;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.dashboard {
-  background: #fff;
-  width: 100%;
-  max-width: 500px;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  text-align: center;
+/* =========================
+   Main Container
+   ========================= */
+.app-container {
+    background-color: #ffffff;
+    padding: 2.5rem 3rem;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
 }
 
-h1 {
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  color: #4a4a4a;
+/* =========================
+   Header
+   ========================= */
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #222;
 }
 
-.fact-card {
-  background: #f9f9fb;
-  border-radius: 12px;
-  padding: 1.5rem;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-  box-shadow: inset 0 0 0 1px #e5e5ef;
+/* =========================
+   Fact Card
+   ========================= */
+.fact-section {
+    margin-bottom: 2rem;
 }
 
-.fact-card.loading {
-  color: #999;
-  font-style: italic;
+#fact-card {
+    background-color: #fafafa;
+    padding: 1.5rem 1.75rem;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.error {
-  color: #d9534f;
-  margin-bottom: 1rem;
-  display: none;
+#fact-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
 }
 
-button {
-  background: #667eea;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+/* =========================
+   Controls & Button
+   ========================= */
+.controls {
+    margin-bottom: 1.5rem;
 }
 
-button:hover {
-  background: #5a6fd6;
+#generate-fact-btn {
+    background-color: #4f46e5;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
 }
 
-button:disabled {
-  background: #b3baf0;
-  cursor: not-allowed;
+#generate-fact-btn:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
 }
 
-.spinner {
-  border: 4px solid #e5e5ef;
-  border-top: 4px solid #667eea;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  animation: spin 1s linear infinite;
+#generate-fact-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+/* =========================
+   Error Message
+   ========================= */
+.errors {
+    margin-top: 1rem;
+}
+
+#error-message {
+    color: #b91c1c;
+    background-color: #fee2e2;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+/* =========================
+   Utility
+   ========================= */
+[hidden] {
+    display: none;
 }

@@ -1,64 +1,53 @@
-const API_URL = 'https://uselessfacts.jsph.pl/random.json?language=en';
+// =========================
+// Selectarea elementelor din DOM
+// =========================
+const factText = document.getElementById("fact-text");
+const generateFactBtn = document.getElementById("generate-fact-btn");
+const errorMessage = document.getElementById("error-message");
 
-const factCard = document.getElementById('factCard');
-const generateBtn = document.getElementById('generateBtn');
-const errorBox = document.getElementById('error');
+// =========================
+// Mesaj la pornirea aplicației
+// =========================
+console.log("Aplicația a pornit");
 
-console.log('Aplicația a fost inițializată');
-
+// =========================
+// Funcție asincronă pentru preluarea unui useless fact
+// =========================
 async function fetchUselessFact() {
-  console.log('Cerere către API trimisă');
+    console.log("Cerere către API trimisă");
 
-  try {
-    showLoadingState();
-    hideError();
+    // Ascundem mesajul de eroare la fiecare cerere nouă
+    errorMessage.hidden = true;
 
-    const response = await fetch(API_URL);
+    try {
+        const response = await fetch(
+            "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"
+        );
 
-    if (!response.ok) {
-      throw new Error(`Răspuns invalid de la API: ${response.status}`);
+        // Verificăm dacă răspunsul este valid
+        if (!response.ok) {
+            throw new Error("Răspuns invalid de la server");
+        }
+
+        const data = await response.json();
+
+        console.log("Fact primit cu succes");
+
+        // Afișăm factul în card
+        factText.textContent = data.text;
+
+    } catch (error) {
+        console.log("Eroare la preluarea factului");
+        console.error(error);
+
+        // Afișăm mesaj de eroare în UI
+        errorMessage.hidden = false;
+        errorMessage.textContent =
+            "Nu am putut încărca un fact inutil. Încearcă din nou 😕";
     }
-
-    const data = await response.json();
-
-    if (!data || !data.text) {
-      throw new Error('Structură de răspuns neașteptată');
-    }
-
-    console.log('Fact primit cu succes');
-    displayFact(data.text);
-
-  } catch (error) {
-    console.error('Eroare la preluarea factului', error);
-    showError('Nu am putut prelua un useless fact. Încearcă din nou.');
-  } finally {
-    resetButtonState();
-  }
 }
 
-function showLoadingState() {
-  generateBtn.disabled = true;
-  factCard.classList.add('loading');
-  factCard.innerHTML = '<div class="spinner"></div>';
-}
-
-function resetButtonState() {
-  generateBtn.disabled = false;
-  factCard.classList.remove('loading');
-}
-
-function displayFact(text) {
-  factCard.textContent = text;
-}
-
-function showError(message) {
-  errorBox.textContent = message;
-  errorBox.style.display = 'block';
-  factCard.textContent = '⚠️ Eroare la încărcarea factului.';
-}
-
-function hideError() {
-  errorBox.style.display = 'none';
-}
-
-generateBtn.addEventListener('click', fetchUselessFact);
+// =========================
+// Event listener pentru buton
+// =========================
+generateFactBtn.addEventListener("click", fetchUselessFact);
