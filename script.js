@@ -49,14 +49,15 @@ async function fetchUselessFact() {
     }
 }
 
+
 // =========================
 // Event listener pentru buton
 // =========================
 generateFactBtn.addEventListener("click", fetchUselessFact);
 
-// =========================
+// ==========================
 // Funcție pentru actualizarea datei și timpului
-// =========================
+// ==========================
 function updateDateTime() {
     const now = new Date();
     const datetimeElement = document.getElementById('datetime');
