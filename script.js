@@ -2,12 +2,10 @@
 // Selectarea elementelor din DOM
 // =========================
 const factText = document.getElementById("fact-text");
+const previousFactText = document.getElementById("previous-fact-text");
 const generateFactBtn = document.getElementById("generate-fact-btn");
 const errorMessage = document.getElementById("error-message");
 
-// =========================
-// Mesaj la pornirea aplicației
-// =========================
 console.log("Aplicația a pornit");
 
 // =========================
@@ -24,16 +22,20 @@ async function fetchUselessFact() {
             "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"
         );
 
-        // Verificăm dacă răspunsul este valid
         if (!response.ok) {
             throw new Error("Răspuns invalid de la server");
         }
 
         const data = await response.json();
-
         console.log("Fact primit cu succes");
 
-        // Afișăm factul în card
+        // Mutăm factul curent în secțiunea "ultimul fact"
+        const currentFact = factText.textContent;
+        if (currentFact && currentFact !== "Apasă butonul pentru a genera un fact inutil 🤓") {
+            previousFactText.textContent = currentFact;
+        }
+
+        // Afișăm noul fact în cardul principal
         factText.textContent = data.text;
 
     } catch (error) {

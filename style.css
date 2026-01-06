@@ -94,6 +94,34 @@ header h1 {
 }
 
 /* =========================
+   Previous Fact Section
+   ========================= */
+.previous-fact-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.previous-fact-section h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+#previous-fact-card {
+    background-color: #fafafa;
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+#previous-fact-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* =========================
    Error Message
    ========================= */
 .errors {
